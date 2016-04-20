@@ -1,8 +1,9 @@
 package IvonaSpeechCloudCreateSpeech;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.ivona.services.tts.IvonaSpeechCloudClient;
@@ -26,16 +27,18 @@ public class SampleIvonaSpeechCloudCreateSpeech {
 
     public static void main(String[] args) throws Exception {
 
+        String txt = Files.readAllLines(Paths.get("data/a_family_member.txt")).stream().collect(Collectors.joining());
+
         init();
 
-        String outputFileName = "speech.mp3";
+        String outputFileName = "a_family_member.mp3";
         CreateSpeechRequest createSpeechRequest = new CreateSpeechRequest();
         Input input = new Input();
         Voice voice = new Voice();
 
-        voice.setName("Salli");
+        voice.setName("Brian");
         voice.setLanguage("en-GB");
-        input.setData("This is a sample text to be synthesized.");
+        input.setData(txt);
 
         createSpeechRequest.setInput(input);
         createSpeechRequest.setVoice(voice);
