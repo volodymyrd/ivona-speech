@@ -27,11 +27,11 @@ public class SampleIvonaSpeechCloudCreateSpeech {
 
     public static void main(String[] args) throws Exception {
 
-        String txt = Files.readAllLines(Paths.get("data/a_family_member.txt")).stream().collect(Collectors.joining());
+        String txt = Files.readAllLines(Paths.get("data/an_object.txt")).stream().collect(Collectors.joining());
 
         init();
 
-        String outputFileName = "a_family_member.mp3";
+        String outputFileName = "an_object.mp3";
         CreateSpeechRequest createSpeechRequest = new CreateSpeechRequest();
         Input input = new Input();
         Voice voice = new Voice();
