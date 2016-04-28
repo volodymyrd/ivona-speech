@@ -17,6 +17,8 @@ import com.ivona.services.tts.model.Voice;
  */
 public class SampleIvonaSpeechCloudCreateSpeech {
 
+    private static String data = "a_family_you_like";
+
     private static IvonaSpeechCloudClient speechCloud;
 
     private static void init() {
@@ -27,11 +29,11 @@ public class SampleIvonaSpeechCloudCreateSpeech {
 
     public static void main(String[] args) throws Exception {
 
-        String txt = Files.readAllLines(Paths.get("data/an_object.txt")).stream().collect(Collectors.joining());
+        String txt = Files.readAllLines(Paths.get("data/" + data + ".txt")).stream().collect(Collectors.joining());
 
         init();
 
-        String outputFileName = "an_object.mp3";
+        String outputFileName = data + ".mp3";
         CreateSpeechRequest createSpeechRequest = new CreateSpeechRequest();
         Input input = new Input();
         Voice voice = new Voice();
