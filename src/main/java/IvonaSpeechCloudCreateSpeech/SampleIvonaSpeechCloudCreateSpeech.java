@@ -17,7 +17,7 @@ import com.ivona.services.tts.model.Voice;
  */
 public class SampleIvonaSpeechCloudCreateSpeech {
 
-    private static String data = "a_family_you_like";
+    private static String data = "a_book";
 
     private static IvonaSpeechCloudClient speechCloud;
 
